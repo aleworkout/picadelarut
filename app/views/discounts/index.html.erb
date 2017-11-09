@@ -6,19 +6,21 @@
               <ul>
                 <li>Puedes Llamarnos</li>
               </ul>
-            
+  <hr />              
+  <%= link_to "Nuevo producto", new_discount_path, role: 'button', class: 'btn btn-success btn-xs' %>         
   <hr />
   <div class="row">
     <% @discounts.each do |disscount| %>
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <%= image_tag disscount.avatar %>
+          <%= image_tag attachment_url(disscount, :image, :fill, 300, 300, format: "jpg") %>
           <div class="caption">
             <h3><%= disscount.title %></h3>
             <strike>$<%= disscount.price %></strike>
             <h3>$<%= disscount.final_price %></h3>
             <p>
               <%= link_to "Ver", disscount, :class => "btn btn-warning" %>
+              <%= link_to "Editar", edit_discount_path(disscount), :class => "btn btn-warning" %>
             </p>
           </div>
         </div>

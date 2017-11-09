@@ -1,22 +1,24 @@
 <!-- Page Content -->
     <h1>Humor</h1>
+    <hr />              
+    <%= link_to "Nuevo chiste", new_joke_path, role: 'button', class: 'btn btn-success btn-xs' %>         
+    <hr />    
     
     <div class="container">
 
       <!-- Page Heading -->
       <% @jokes.each do |joke| %>
-      <hr />
-      <!-- Project One -->
-      <div class="row">
-        <div class="col-md-7">
-          <a href="#">
-            <%= image_tag(joke.avatar.url, class: "img-responsive") if joke.avatar? %>
-          </a>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <%= image_tag attachment_url(joke, :joke_image, :fill, 300, 300, format: "jpg") %>
+          <div class="caption">
+            <p>
+              <%= link_to "Editar", edit_joke_path(joke), :class => "btn btn-warning" %>
+            </p>
+          </div>
         </div>
       </div>
-      
+      <!-- Project One -->
       <% end %>
       <!-- /.row -->
-
-      <hr>
     </div>

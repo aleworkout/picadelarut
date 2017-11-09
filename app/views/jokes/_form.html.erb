@@ -12,7 +12,8 @@
   <% end %>
   
   <div class="field">
-    <%= f.file_field :avatar, as: :file %>
+    <%= f.label "Imagen del chiste" %><br>
+    <%= f.attachment_field :joke_image %>
   </div>
   <hr />
   <!--
